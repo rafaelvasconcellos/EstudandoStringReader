@@ -14,10 +14,15 @@ namespace EstudoDoStringReader
 
             using (var leitor = new StringReader(textoDoGloboesporte.Texto))
             {
-                string linha;
-                while ((linha = leitor.ReadLine()) != null)
+                using (var escritor = new StringWriter())
                 {
-                    Console.WriteLine("֎ " + linha);
+                    string linha;
+                    while ((linha = leitor.ReadLine()) != null)
+                    {
+                        escritor.WriteLine("֎ " + linha);
+                    }
+
+                    Console.WriteLine(escritor);
                 }
             }
 
